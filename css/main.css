@@ -1,0 +1,26 @@
+/* Define variables */
+:root {
+  --primary-color: #f1f5f8;
+  --secondary-color: #222222;
+}
+
+/* Reset of styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Import the Roboto Font*/
+@font-face {
+  font-family: "Roboto";
+  src: url("/assets/fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* General styles for the document body */
+body {
+  background-color: var(--primary-color);
+  font-family: "Roboto", sans-serif;
+}
