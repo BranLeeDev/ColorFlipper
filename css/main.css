@@ -31,6 +31,7 @@ body {
 }
 
 .content-layout {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
@@ -41,6 +42,7 @@ body {
   height: 100vh;
   max-height: 60em;
   background-color: var(--primary-color);
+  overflow: hidden;
 }
 
 .header {
@@ -77,6 +79,8 @@ body {
 }
 
 .nav__button {
+  position: relative;
+  z-index: 10;
   display: none;
   flex-direction: column;
   gap: 0.5em;
@@ -213,9 +217,28 @@ body {
   .header__nav {
     width: 100%;
   }
+
   .nav__list {
-    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 20em;
+    width: 100%;
+    max-width: 125em;
+    min-height: 30em;
+    height: 100vh;
+    max-height: 60em;
+    background-color: var(--primary-color);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
   }
+
+  .nav__list--active {
+    transform: translateX(0%);
+  }
+
   .nav__button {
     display: flex;
   }
