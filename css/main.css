@@ -89,6 +89,18 @@ body {
   background-color: var(--secondary-color);
   width: 3.5em;
   height: 0.45em;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.button__line--one {
+  transform: rotate(40deg) scaleX(1.15) translateX(12%) translateY(180%);
+}
+.button__line--two {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.button__line--three {
+  transform: rotate(-40deg) scaleX(1.15) translateX(12%) translateY(-180%);
 }
 
 .list__link {
