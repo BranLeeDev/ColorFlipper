@@ -81,6 +81,7 @@ body {
   flex-direction: column;
   gap: 0.5em;
   border: none;
+  background-color: transparent;
 }
 
 .button__line {
@@ -196,7 +197,7 @@ body {
   color: var(--secondary-color);
 }
 
-@media screen and (width <= 520px) {
+@media screen and (width <= 600px) {
   .header__nav {
     width: 100%;
   }
