@@ -4,8 +4,14 @@ const paragraphColor = document.querySelector(".paragraph__color");
 const contentLayout = document.querySelector(".content-layout");
 const hexOptions = "0123456789";
 
+const valueLocalStorage = window.localStorage.getItem("colorRGB");
+if (valueLocalStorage) {
+  contentLayout.style.backgroundColor = valueLocalStorage;
+  paragraphColor.textContent = valueLocalStorage;
+}
+
 sectionButton.addEventListener("click", () => {
-  let result = "";
+  let colorRGB = "";
   let numberRed;
   let numberGreen;
   let numberBlue;
@@ -16,7 +22,7 @@ sectionButton.addEventListener("click", () => {
     if (i === 2) numberBlue = randomIndex;
   }
 
-  if (result === "rgb(33, 33, 33)") {
+  if (colorRGB === "rgb(33, 33, 33)") {
     sectionButton.classList.add("equals-button");
     sectionParagraph.classList.add("equals-paragraph");
   } else {
@@ -24,8 +30,10 @@ sectionButton.addEventListener("click", () => {
     sectionButton.classList.remove("equals-button");
   }
 
-  result = `rgb(${numberRed}, ${numberGreen}, ${numberBlue})`;
+  colorRGB = `rgb(${numberRed}, ${numberGreen}, ${numberBlue})`;
 
-  paragraphColor.textContent = result;
-  contentLayout.style.backgroundColor = result;
+  paragraphColor.textContent = colorRGB;
+  contentLayout.style.backgroundColor = colorRGB;
+
+  window.localStorage.setItem("colorRGB", colorRGB);
 });

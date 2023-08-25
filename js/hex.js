@@ -4,6 +4,12 @@ const paragraphColor = document.querySelector(".paragraph__color");
 const contentLayout = document.querySelector(".content-layout");
 const hexOptions = "0123456789ABCDEF";
 
+const valueLocalStorage = window.localStorage.getItem("hexColor");
+if (valueLocalStorage) {
+  contentLayout.style.backgroundColor = valueLocalStorage;
+  paragraphColor.textContent = valueLocalStorage;
+}
+
 sectionButton.addEventListener("click", () => {
   let colorHex = "#";
 
@@ -22,4 +28,6 @@ sectionButton.addEventListener("click", () => {
 
   paragraphColor.textContent = colorHex;
   contentLayout.style.backgroundColor = colorHex;
+
+  window.localStorage.setItem("hexColor", colorHex);
 });
