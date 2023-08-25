@@ -118,11 +118,11 @@ body {
   color: var(--tertiary-color);
 }
 
-.is-active {
+.list__link--active {
   position: relative;
 }
 
-.is-active::before {
+.list__link--active::before {
   content: "";
   position: absolute;
   bottom: -1px;
@@ -143,7 +143,7 @@ body {
   }
 }
 
-.is-active:hover::before {
+.list__link--active:hover::before {
   background-color: var(--tertiary-color);
 }
 

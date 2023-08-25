@@ -1,33 +1,22 @@
-const sectionButton = document.querySelector(".section__button");
-const sectionParagraph = document.querySelector(".section__paragraph");
-const paragraphColor = document.querySelector(".paragraph__color");
-const contentLayout = document.querySelector(".content-layout");
-const hexOptions = "0123456789ABCDEF";
+import { changeColor, getColorAndApplyToDocument } from "./main.js";
 
-const valueLocalStorage = window.localStorage.getItem("hexColor");
-if (valueLocalStorage) {
-  contentLayout.style.backgroundColor = valueLocalStorage;
-  paragraphColor.textContent = valueLocalStorage;
-}
+const hexOptions = "0123456789ABCDEF"; // Values needed to generate hex colors
 
-sectionButton.addEventListener("click", () => {
-  let colorHex = "#";
-
+// This function generates a random hex color
+function generateRandomHexColor() {
+  let hexColor = "#";
   for (let i = 0; i < 6; i++) {
     const randomIndex = Math.floor(Math.random() * hexOptions.length);
-    colorHex += hexOptions[randomIndex];
+    hexColor += hexOptions[randomIndex];
   }
 
-  if (colorHex === "#222222") {
-    sectionButton.classList.add("equals-button");
-    sectionParagraph.classList.add("equals-paragraph");
-  } else {
-    sectionParagraph.classList.remove("equals-paragraph");
-    sectionButton.classList.remove("equals-button");
-  }
+  return hexColor;
+}
 
-  paragraphColor.textContent = colorHex;
-  contentLayout.style.backgroundColor = colorHex;
+// Main function
+function hexMain() {
+  getColorAndApplyToDocument("hexColor");
+  changeColor(generateRandomHexColor, "hexColor", "#222222");
+}
 
-  window.localStorage.setItem("hexColor", colorHex);
-});
+window.addEventListener("load", hexMain);

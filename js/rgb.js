@@ -1,39 +1,20 @@
-const sectionButton = document.querySelector(".section__button");
-const sectionParagraph = document.querySelector(".section__paragraph");
-const paragraphColor = document.querySelector(".paragraph__color");
-const contentLayout = document.querySelector(".content-layout");
-const hexOptions = "0123456789";
+import { changeColor, getColorAndApplyToDocument } from "./main.js";
 
-const valueLocalStorage = window.localStorage.getItem("colorRGB");
-if (valueLocalStorage) {
-  contentLayout.style.backgroundColor = valueLocalStorage;
-  paragraphColor.textContent = valueLocalStorage;
+// This function generates a random rgb color
+function generateRandomRgbColor() {
+  const numberRed = Math.floor(Math.random() * 256);
+  const numberGreen = Math.floor(Math.random() * 256);
+  const numberBlue = Math.floor(Math.random() * 256);
+
+  const rgbColor = `rgb(${numberRed}, ${numberGreen}, ${numberBlue})`;
+
+  return rgbColor;
 }
 
-sectionButton.addEventListener("click", () => {
-  let colorRGB = "";
-  let numberRed;
-  let numberGreen;
-  let numberBlue;
-  for (let i = 0; i <= 2; i++) {
-    const randomIndex = Math.floor(Math.random() * 256);
-    if (i === 0) numberRed = randomIndex;
-    if (i === 1) numberGreen = randomIndex;
-    if (i === 2) numberBlue = randomIndex;
-  }
+// Main function
+function rgbMain() {
+  getColorAndApplyToDocument("rgbColor");
+  changeColor(generateRandomRgbColor, "rgbColor", "rgb(33, 33, 33)");
+}
 
-  if (colorRGB === "rgb(33, 33, 33)") {
-    sectionButton.classList.add("equals-button");
-    sectionParagraph.classList.add("equals-paragraph");
-  } else {
-    sectionParagraph.classList.remove("equals-paragraph");
-    sectionButton.classList.remove("equals-button");
-  }
-
-  colorRGB = `rgb(${numberRed}, ${numberGreen}, ${numberBlue})`;
-
-  paragraphColor.textContent = colorRGB;
-  contentLayout.style.backgroundColor = colorRGB;
-
-  window.localStorage.setItem("colorRGB", colorRGB);
-});
+window.addEventListener("load", rgbMain);
