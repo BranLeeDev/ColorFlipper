@@ -2,6 +2,14 @@
 
 Este proyecto genera colores RGB y hexadecimales de manera aleatoria. Se ha desarrollado siguiendo el enfoque de diseño "desktop first" y la metodología BEM para una estructura de estilos más organizada y escalable. Las tecnologías utilizadas en su creación son HTML, CSS y JavaScript.
 
+## Características
+
+- Responsive
+- BEM (Block Element Modify)
+- Desktop First
+- LocalStorage
+- JavaScript Vanilla
+
 ## Enlace de la pagina web
 
 [Color Flipper](https://color-flipper-azure.vercel.app/)
